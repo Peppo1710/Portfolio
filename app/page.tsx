@@ -18,7 +18,7 @@ export default function Home() {
     if (typeof window !== "undefined" && window.performance && window.performance.getEntriesByType) {
       const navEntries = window.performance.getEntriesByType("navigation");
       if (navEntries.length > 0) {
-        const navType = navEntries[0].type;
+        const navType = (navEntries[0] as PerformanceNavigationTiming).type;
         // Only animate on direct entry ("navigate")
         if (navType === "navigate") {
           setShouldAnimate(true);
