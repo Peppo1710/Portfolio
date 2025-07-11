@@ -1,4 +1,5 @@
 "use client";
+
 import Link from "next/link";
 import { ArrowLeft, Github, ExternalLink } from "lucide-react";
 import { useRouter } from "next/navigation";
@@ -6,6 +7,7 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { atomDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import type { ReactNode } from "react";
 
 const projectData = {
   title: "Echo – Real-time Chat & Communication Engine",
@@ -13,7 +15,7 @@ const projectData = {
   date: "2024-11-01",
   techStack: ["Node.js", "WebSocket", "Redis", "MongoDB", "Express", "React", "Tailwind CSS"],
   githubUrl: "https://github.com/Pradyumn1710/echo",
-  websiteUrl: "", // Add if deployed
+  websiteUrl: "",
   content: `
 # What is Echo?
 
@@ -90,14 +92,20 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
           </p>
           <div className="flex gap-4">
             {githubUrl && (
-              <Link href={githubUrl} target="_blank" rel="noopener noreferrer"
+              <Link
+                href={githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-zinc-100 bg-zinc-800 rounded-md hover:bg-zinc-700 transition-colors"
               >
                 <Github className="w-4 h-4" /> GitHub
               </Link>
             )}
             {websiteUrl && (
-              <Link href={websiteUrl} target="_blank" rel="noopener noreferrer"
+              <Link
+                href={websiteUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-zinc-100 bg-zinc-800 rounded-md hover:bg-zinc-700 transition-colors"
               >
                 <ExternalLink className="w-4 h-4" /> Live Demo
@@ -125,14 +133,33 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
         <ReactMarkdown
           remarkPlugins={[remarkGfm]}
           components={{
-            code({ node, inline, className, children, ...props }: any) {
-              const match = /language-(\w+)/.exec(props.className || "");
+            code({
+              node,
+              inline,
+              className,
+              children,
+              ...props,
+            }: {
+              node: any;
+              inline?: boolean;
+              className?: string;
+              children: ReactNode;
+              [key: string]: any;
+            }) {
+              const match = /language-(\w+)/.exec(className || "");
               return !inline && match ? (
-                <SyntaxHighlighter style={atomDark} language={match[1]} PreTag="div" {...props}>
+                <SyntaxHighlighter
+                  style={atomDark}
+                  language={match[1]}
+                  PreTag="div"
+                  {...props}
+                >
                   {String(children).replace(/\n$/, "")}
                 </SyntaxHighlighter>
               ) : (
-                <code className={props.className} {...props}>{children}</code>
+                <code className={className} {...props}>
+                  {children}
+                </code>
               );
             },
           }}
