@@ -108,42 +108,40 @@ export default function ProjectsPage() {
             <h3 className="text-xl font-semibold text-zinc-300">Featured</h3>
             <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
               {featuredProjects.map((project) => (
-                <Link key={project.slug} href={`/projects/${project.slug}`}>
-                  <Card>
-                    <article className="relative w-full p-4 md:p-8 flex flex-col">
-                      <div className="flex items-center justify-between gap-2">
-                        <div className="text-xs text-zinc-100">
-                          {project.date ? (
-                            <time dateTime={new Date(project.date).toISOString()}>
-                              {Intl.DateTimeFormat(undefined, {
-                                dateStyle: "medium",
-                              }).format(new Date(project.date))}
-                            </time>
-                          ) : (
-                            <span>SOON</span>
-                          )}
-                        </div>
+                <Card key={project.slug}>
+                  <article className="relative w-full p-4 md:p-8 flex flex-col">
+                    <div className="flex items-center justify-between gap-2">
+                      <div className="text-xs text-zinc-100">
+                        {project.date ? (
+                          <time dateTime={new Date(project.date).toISOString()}>
+                            {Intl.DateTimeFormat(undefined, {
+                              dateStyle: "medium",
+                            }).format(new Date(project.date))}
+                          </time>
+                        ) : (
+                          <span>SOON</span>
+                        )}
                       </div>
+                    </div>
 
-                      <h2 className="mt-4 text-3xl font-bold text-zinc-100 group-hover:text-white sm:text-4xl font-display">
-                        {project.title}
-                      </h2>
-                      <p className="mt-4 leading-8 duration-150 text-zinc-400 group-hover:text-zinc-300">
-                        {project.description}
-                      </p>
-                      <div className="mt-auto">
-                        <a
-                          href={`https://github.com/Pradyumn1710/${project.slug}`}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-sm text-zinc-400 hover:text-zinc-300"
-                        >
-                          Explore
-                        </a>
-                      </div>
-                    </article>
-                  </Card>
-                </Link>
+                    <h2 className="mt-4 text-3xl font-bold text-zinc-100 group-hover:text-white sm:text-4xl font-display">
+                      {project.title}
+                    </h2>
+                    <p className="mt-4 leading-8 duration-150 text-zinc-400 group-hover:text-zinc-300">
+                      {project.description}
+                    </p>
+                    <div className="mt-auto">
+                      <a
+                        href={`https://github.com/Pradyumn1710/${project.slug}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm text-zinc-400 hover:text-zinc-300"
+                      >
+                        Explore
+                      </a>
+                    </div>
+                  </article>
+                </Card>
               ))}
             </div>
           </>
@@ -157,41 +155,39 @@ export default function ProjectsPage() {
             <h3 className="text-xl font-semibold text-zinc-300">Common</h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {commonProjects.map((project) => (
-                <Link key={project.slug} href={`/projects/${project.slug}`}>
-                  <Card>
-                    <article className="p-4 md:p-8 flex flex-col">
-                      <div className="flex justify-between gap-2 items-center">
-                        <span className="text-xs text-zinc-200 group-hover:text-white group-hover:border-zinc-200 drop-shadow-orange">
-                          {project.date ? (
-                            <time dateTime={new Date(project.date).toISOString()}>
-                              {Intl.DateTimeFormat(undefined, { dateStyle: "medium" }).format(
-                                new Date(project.date),
-                              )}
-                            </time>
-                          ) : (
-                            <span>SOON</span>
-                          )}
-                        </span>
-                      </div>
-                      <h2 className="z-20 text-xl font-medium lg:text-3xl text-zinc-200 group-hover:text-white font-display">
-                        {project.title}
-                      </h2>
-                      <p className="z-20 mt-4 text-sm text-zinc-400 group-hover:text-zinc-200">
-                        {project.description}
-                      </p>
-                      <div className="mt-auto">
-                        <a
-                          href={`https://github.com/Pradyumn1710/${project.slug}`}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-sm text-zinc-400 hover:text-zinc-300"
-                        >
-                          Explore
-                        </a>
-                      </div>
-                    </article>
-                  </Card>
-                </Link>
+                <Card key={project.slug}>
+                  <article className="p-4 md:p-8 flex flex-col">
+                    <div className="flex justify-between gap-2 items-center">
+                      <span className="text-xs text-zinc-200 group-hover:text-white group-hover:border-zinc-200 drop-shadow-orange">
+                        {project.date ? (
+                          <time dateTime={new Date(project.date).toISOString()}>
+                            {Intl.DateTimeFormat(undefined, { dateStyle: "medium" }).format(
+                              new Date(project.date),
+                            )}
+                          </time>
+                        ) : (
+                          <span>SOON</span>
+                        )}
+                      </span>
+                    </div>
+                    <h2 className="z-20 text-xl font-medium lg:text-3xl text-zinc-200 group-hover:text-white font-display">
+                      {project.title}
+                    </h2>
+                    <p className="z-20 mt-4 text-sm text-zinc-400 group-hover:text-zinc-200">
+                      {project.description}
+                    </p>
+                    <div className="mt-auto">
+                      <a
+                        href={`https://github.com/Pradyumn1710/${project.slug}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm text-zinc-400 hover:text-zinc-300"
+                      >
+                        Explore
+                      </a>
+                    </div>
+                  </article>
+                </Card>
               ))}
             </div>
           </>
