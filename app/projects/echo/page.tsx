@@ -125,7 +125,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
         <ReactMarkdown
           remarkPlugins={[remarkGfm]}
           components={{
-            code({ node, inline, className, children, ...props }) {
+            code({ node, inline, className, children, ...props }: any) {
               const match = /language-(\w+)/.exec(props.className || "");
               return !inline && match ? (
                 <SyntaxHighlighter style={atomDark} language={match[1]} PreTag="div" {...props}>
