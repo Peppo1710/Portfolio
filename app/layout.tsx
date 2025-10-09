@@ -9,21 +9,20 @@ export const metadata: Metadata = {
     default: "Pradyumn",
     template: "%s | Pradyumn",
   },
-  description: "Web Developer and CUDA enthusiati",
+  description: "Web Developer and CUDA enthusiast",
   openGraph: {
     title: "Pradyumn Shirsath",
-    description:
-      "Web Developer and CUDA enthusiatic",
-    url: "",
-    siteName: "",
+    description: "Web Developer and CUDA enthusiast",
+    url: "https://pradyumn.co.in",
+    siteName: "Pradyumn",
     images: [
       {
-        url: "logo.png",
-        width: 1920,
-        height: 1080,
+        url: "https://pradyumn.co.in/logo.png",
+        width: 1200,
+        height: 630,
       },
     ],
-    locale: "en-US",
+    locale: "en_US",
     type: "website",
   },
   robots: {
@@ -38,13 +37,16 @@ export const metadata: Metadata = {
     },
   },
   twitter: {
-    title: "Pradyumn",
     card: "summary_large_image",
+    title: "Pradyumn",
+    description: "Web Developer and CUDA enthusiast",
+    images: ["https://pradyumn.co.in/logo.png"],
   },
   icons: {
     shortcut: "/logo.png",
   },
 };
+
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
