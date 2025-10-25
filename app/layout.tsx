@@ -1,5 +1,4 @@
 import "../global.css";
-import { Inter } from "@next/font/google";
 import LocalFont from "@next/font/local";
 import { Metadata } from "next";
 import { Analytics } from "./components/analytics";
@@ -52,14 +51,11 @@ const inter = LocalFont({
   // src: "../public/fonts/Forum-Regular.ttf",
   // public\fonts\arteks\Arteks Black.otf
   variable: "--font-inter",
-  display :'swap'
+  display: 'swap',
 });
 
 const calSans = LocalFont({
   src: "../public/fonts/CalSans-SemiBold.ttf",
-  // src: "../public/fonts/Baron-Neue/Baron Neue.otf",
-  // src: "../public/fonts/devant-pro/Devant-Medium.ttf",
-  // src: "../public/fonts/Forum-Regular.ttf",
   variable: "--font-calsans",
 });
 
